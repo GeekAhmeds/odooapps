@@ -1,0 +1,70 @@
+<templates id="template" xml:space="preserve">
+   <t t-extend="OrderReceipt">
+
+
+
+    <t t-jquery=".pos-receipt .orderlines" t-operation='replace'>
+
+
+            <div class='orderlines'>
+                <table class='receipt-orderlines' style="display:inline;">
+                    <tr>
+                        <th style="border:1px solid #000000; width:50%; text-align: center; padding: 2px;">اسم</th>
+                        <th style="border:1px solid #000000; width:15%; text-align: center; center; padding: 2px;">السعر</th>
+                        <th style="border:1px solid #000000; width:15%; text-align: center; center; padding: 2px;">العدد</th>
+                        <th style="border:1px solid #000000; width:25%; text-align: center; center; padding: 2px;">الاجمالي</th>
+                    </tr>
+                    <tr t-foreach="receipt.orderlines" t-as="line">
+                        <td style="border:1px solid #000000; text-align: left; center; padding: 2px;">
+                            <t t-set='simple' t-value='(line.discount === 0 and line.unit_name === "Units" and line.quantity === 1 and !discount_to_show and !(line.display_discount_policy == "without_discount" &amp;&amp; line.price != line.price_lst))'/>
+                            <t t-if='simple'>
+                                <div>
+                                    <t t-esc='line.product_name_wrapped[0]'/>
+                                </div>
+                                <t t-call="OrderReceiptWrappedProductNameLines"/>
+                            </t>
+                            <t t-if='!simple'>
+                                <div t-esc='line.product_name_wrapped[0]'/>
+                                <t t-call="OrderReceiptWrappedProductNameLines"/>
+                                <t t-if="line.display_discount_policy == 'without_discount' &amp;&amp; line.price != line.price_lst">
+                                    <div class="pos-receipt-left-padding">
+                                        <t t-esc="widget.format_currency_no_symbol(line.price_lst)" />-><t t-esc="widget.format_currency_no_symbol(line.price)"/>
+                                    </div>
+                                </t>
+                                <t t-elif='line.discount !== 0'>
+                                    <div class="pos-receipt-left-padding">
+                                        <t t-if="pos.config.iface_tax_included === 'total'">
+                                            <t t-esc="widget.format_currency_no_symbol(line.price_with_tax_before_discount)"/>
+                                        </t>
+                                        <t t-else="">
+                                            <t t-esc="widget.format_currency_no_symbol(line.price)"/>
+                                        </t>
+                                    </div>
+                                </t>
+                                <t t-if='line.discount !== 0'>
+                                    <div class="pos-receipt-left-padding">
+                                        With a <t t-esc='line.discount' />% discount
+                                    </div>
+                                </t>
+                            </t>
+                        </td>
+                        <td class="pos-left-align" style="border:1px solid #000000; text-align: right; center; padding: 2px;">
+                            <t t-esc="widget.format_currency_no_symbol(line.price)" />
+                        </td>
+                        <td class="pos-center-align" style="border:1px solid #000000; text-align: right; center; padding: 2px;">
+                            <t t-esc="Math.round(line.quantity * Math.pow(10, pos.dp['Product Unit of Measure'])) / Math.pow(10, pos.dp['Product Unit of Measure'])"/>
+                            <t t-if='line.unit_name !== "Units"' t-esc='line.unit_name'/>
+                        </td>
+                        <td class="pos-center-align" style="border:1px solid #000000; text-align: right; center; padding: 2px;">
+                            <t t-esc='widget.format_currency_no_symbol(line.price_display)'/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+
+
+    </t>   
+</t>
+</templates>

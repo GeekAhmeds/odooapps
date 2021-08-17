@@ -1,0 +1,16 @@
+<templates id="template" xml:space="preserve">
+   <t t-extend="OrderReceipt">
+
+
+
+    <t t-jquery=".pos-receipt .pos-receipt-order-data" t-operation='replace'>
+
+            <div class="pos-receipt-order-data">
+                <div> <h1> Bill: <t t-esc='order.sequence_number' /> </h1> </div>
+                <div> <h4> <t t-esc='receipt.name' /> </h4> </div>
+            </div>
+
+
+    </t>   
+</t>
+</templates>
