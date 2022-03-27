@@ -26,7 +26,7 @@ Large Name without image.
     'category': 'Point Of Sale',
     'support': 'info@th3company.com',
     'version': '15.0.0.1',
-    'images': ['static/description/images/screen/2.png'],
+    'images': ['static/description/banner.png'],
     # any module necessary for this one to work correctly
     'depends': ['point_of_sale'],
     'assets': {
