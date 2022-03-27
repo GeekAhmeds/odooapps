@@ -22,10 +22,11 @@ Large Name without image.
     # for the full list
     'currency': 'USD',
     'price': '0.0',
+    'license': 'LGPL-3',
     'category': 'Point Of Sale',
     'support': 'info@th3company.com',
     'version': '15.0.0.1',
-    'images': ['static/description/Untitled-1.png'],
+    'images': ['static/description/banner.png'],
     # any module necessary for this one to work correctly
     'depends': ['point_of_sale'],
     'assets': {
