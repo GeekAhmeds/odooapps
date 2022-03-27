@@ -22,6 +22,7 @@ Large Name without image.
     # for the full list
     'currency': 'USD',
     'price': '0.0',
+    'license': 'LGPL-3',
     'category': 'Point Of Sale',
     'support': 'info@th3company.com',
     'version': '15.0.0.1',
