@@ -8,7 +8,7 @@
 
     'description': """
         POS Change Product Item Design v15.0
-Change Product Item Design make Your Product Item Without Image For Product, 
+Change Product Item Design make Your Product Item Without Image For Product,
 Large Name without image.
         POS,
         POS Shop,
@@ -31,7 +31,7 @@ Large Name without image.
     'depends': ['point_of_sale'],
     'assets': {
         'web.assets_qweb': [
-           "receipt_pos/static/src/xml/th3C_Product_Item.xml",
+           "Change_Product_Item_Design_POS/static/src/xml/3C_Product_Item.xml",
         ],
         "point_of_sale.assets": [
             "receipt_pos/static/src/css/style.css",
