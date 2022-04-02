@@ -25,19 +25,21 @@ Large Name without image.
     'license': 'LGPL-3',
     'category': 'Point Of Sale',
     'support': 'info@th3company.com',
-    'version': '15.0.0.1',
+    'version': '15.0.1.0',
     'images': ['static/description/banner.png'],
     # any module necessary for this one to work correctly
     'depends': ['point_of_sale'],
     'assets': {
+        'point_of_sale.assets': [
+            "3c_product_item/static/src/css/style.css",
+            ],
         'web.assets_qweb': [
-           "Change_Product_Item_Design_POS/static/src/xml/3C_Product_Item.xml",
-        ],
-        "point_of_sale.assets": [
-            "receipt_pos/static/src/css/style.css",
-        ],
+           "3c_product_item/static/src/**/*",
+            ],
     },
     # only loaded in demonstration mode
 
     'installable': True,
+    'application': True,
+    'auto_install': False,
 }

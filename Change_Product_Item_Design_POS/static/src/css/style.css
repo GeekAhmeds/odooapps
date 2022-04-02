@@ -39,3 +39,26 @@ Website: https://th3company.com
     font-size: 15px;
     color:#fff;
 }
+
+
+.pos .category-button{
+    height: 90px;
+    width: 150px; 
+    border-radius: 20px;
+    outline-style: solid;
+    outline-color: #142f40;
+    background: #17A589;
+    cursor: pointer;
+}
+
+.category-name3{
+    position:relative;
+    text-align:center;
+    top:28%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    font-size: 20px; 
+    color:#fff;
+}
+
+
